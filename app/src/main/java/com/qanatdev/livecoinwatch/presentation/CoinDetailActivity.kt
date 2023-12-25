@@ -1,4 +1,4 @@
-package com.qanatdev.livecoinwatch
+package com.qanatdev.livecoinwatch.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.qanatdev.livecoinwatch.R
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {

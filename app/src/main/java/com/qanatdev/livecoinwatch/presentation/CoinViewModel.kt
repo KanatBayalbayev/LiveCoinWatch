@@ -1,14 +1,14 @@
-package com.qanatdev.livecoinwatch
+package com.qanatdev.livecoinwatch.presentation
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.google.gson.Gson
-import com.qanatdev.livecoinwatch.api.ApiFactory
-import com.qanatdev.livecoinwatch.database.AppDatabase
-import com.qanatdev.livecoinwatch.pojo.CoinPriceInfo
-import com.qanatdev.livecoinwatch.pojo.CoinPriceInfoRawData
+import com.qanatdev.livecoinwatch.data.api.ApiFactory
+import com.qanatdev.livecoinwatch.data.database.AppDatabase
+import com.qanatdev.livecoinwatch.data.models.CoinPriceInfo
+import com.qanatdev.livecoinwatch.data.models.CoinPriceInfoRawData
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit

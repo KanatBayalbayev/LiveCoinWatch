@@ -1,10 +1,10 @@
-package com.qanatdev.livecoinwatch.database
+package com.qanatdev.livecoinwatch.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.qanatdev.livecoinwatch.pojo.CoinPriceInfo
+import com.qanatdev.livecoinwatch.data.models.CoinPriceInfo
 
 @Database(entities = [CoinPriceInfo::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {

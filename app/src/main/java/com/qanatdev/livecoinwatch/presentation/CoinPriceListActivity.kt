@@ -1,12 +1,13 @@
-package com.qanatdev.livecoinwatch
+package com.qanatdev.livecoinwatch.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
-import com.qanatdev.livecoinwatch.adapters.CoinInfoAdapter
-import com.qanatdev.livecoinwatch.pojo.CoinPriceInfo
+import com.qanatdev.livecoinwatch.R
+import com.qanatdev.livecoinwatch.presentation.adapters.CoinInfoAdapter
+import com.qanatdev.livecoinwatch.data.models.CoinPriceInfo
 
 
 class CoinPriceListActivity : AppCompatActivity() {

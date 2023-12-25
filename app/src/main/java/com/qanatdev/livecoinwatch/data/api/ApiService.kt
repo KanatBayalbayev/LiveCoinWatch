@@ -1,7 +1,7 @@
-package com.qanatdev.livecoinwatch.api
+package com.qanatdev.livecoinwatch.data.api
 
-import com.qanatdev.livecoinwatch.pojo.CoinInfoListOfData
-import com.qanatdev.livecoinwatch.pojo.CoinPriceInfoRawData
+import com.qanatdev.livecoinwatch.data.models.CoinInfoListOfData
+import com.qanatdev.livecoinwatch.data.models.CoinPriceInfoRawData
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
