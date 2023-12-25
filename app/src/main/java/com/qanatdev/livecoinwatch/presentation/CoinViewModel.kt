@@ -17,7 +17,7 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
     private val getCryptoUseCase = GetCryptoUseCase(repository)
     private val loadDataUseCase = LoadDataUseCase(repository)
 
-    val coinInfoList = getCryptoListUseCase()
+    val cryptoList = getCryptoListUseCase()
 
     fun getDetailInfo(fSym: String) = getCryptoUseCase(fSym)
 

@@ -2,7 +2,7 @@ package com.qanatdev.livecoinwatch.data.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
 import com.qanatdev.livecoinwatch.data.CryptoMapper
 import com.qanatdev.livecoinwatch.data.api.ApiFactory
 import com.qanatdev.livecoinwatch.data.database.AppDatabase
@@ -37,7 +37,7 @@ class CryptoRepositoryImpl(
     }
 
     override fun getCryptoList(): LiveData<List<CryptoEntity>> {
-        return Transformations.map(cryptoInfoDAO.getPriceList()) {
+        return cryptoInfoDAO.getPriceList().map {
             it.map {
                 mapper.mapDatabaseToEntity(it)
             }
@@ -45,7 +45,7 @@ class CryptoRepositoryImpl(
     }
 
     override fun getCrypto(fromSymbol: String): LiveData<CryptoEntity> {
-        return Transformations.map(cryptoInfoDAO.getPriceInfoAboutCoin(fromSymbol)) {
+        return cryptoInfoDAO.getPriceInfoAboutCoin(fromSymbol).map {
             mapper.mapDatabaseToEntity(it)
         }
     }

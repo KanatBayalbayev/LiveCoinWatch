@@ -2,10 +2,10 @@ package com.qanatdev.livecoinwatch.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.qanatdev.livecoinwatch.R
+import com.qanatdev.livecoinwatch.domain.CryptoEntity
 import com.qanatdev.livecoinwatch.presentation.adapters.CoinInfoAdapter
 
 
@@ -20,18 +20,18 @@ class CoinPriceListActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.rvCoinPriceList)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(cryptoEntity: CryptoEntity) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
-                    coinPriceInfo.fromSymbol
+                    cryptoEntity.fromSymbol
                 )
                 startActivity(intent)
             }
         }
         recyclerView.adapter = adapter
-        viewModel = ViewModelProviders.of(this)[CoinViewModel::class.java]
-        viewModel.priceList.observe(this, Observer {
+        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+        viewModel.cryptoList.observe(this) {
             adapter.coinInfoList = it
-        })
+        }
     }
 }

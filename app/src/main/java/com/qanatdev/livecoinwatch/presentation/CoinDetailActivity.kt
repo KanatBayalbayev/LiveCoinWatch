@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import com.example.cryptoapp.utils.convertTimestampToTime
 import com.qanatdev.livecoinwatch.R
+import com.qanatdev.livecoinwatch.data.api.ApiFactory.BASE_IMAGE_URL
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
@@ -34,18 +35,18 @@ class CoinDetailActivity : AppCompatActivity() {
             return
         }
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
-        viewModel = ViewModelProviders.of(this)[CoinViewModel::class.java]
+        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         if (fromSymbol != null) {
-            viewModel.getDetailInfo(fromSymbol).observe(this, Observer {
+            viewModel.getDetailInfo(fromSymbol).observe(this) {
                 tvPrice.text = it.price
                 tvMinPrice.text = it.lowDay
                 tvMaxPrice.text = it.highDay
                 tvLastMarket.text = it.lastMarket
-                tvLastUpdate.text = it.getFormattedTime()
+                tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
                 tvFromSymbol.text = it.fromSymbol
                 tvToSymbol.text = it.toSymbol
-                Picasso.get().load(it.getFullImageUrl()).into(ivLogoCoin)
-            })
+                Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(ivLogoCoin)
+            }
         }
     }
 
