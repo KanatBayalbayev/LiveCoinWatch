@@ -1,10 +1,10 @@
-package com.qanatdev.livecoinwatch.pojo
+package com.qanatdev.livecoinwatch.data.api.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class CoinInfoListOfData (
+data class CryptoNamesListDTO (
     @SerializedName("Data")
     @Expose
-    val data: List<Datum>? = null
+    val cryptoNames: List<CryptoNamesDTO>? = null
 )
