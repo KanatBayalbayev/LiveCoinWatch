@@ -1,7 +1,7 @@
 package com.qanatdev.livecoinwatch.domain
 
 
-class GetCrypto(
+class GetCryptoUseCase(
     private val repository: CryptoRepository
 ) {
 

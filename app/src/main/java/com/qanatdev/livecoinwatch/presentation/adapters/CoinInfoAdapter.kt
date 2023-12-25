@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.qanatdev.livecoinwatch.R
-import com.qanatdev.livecoinwatch.data.models.CoinPriceInfo
 import com.squareup.picasso.Picasso
 
 

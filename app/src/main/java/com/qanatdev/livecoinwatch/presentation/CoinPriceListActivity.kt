@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.qanatdev.livecoinwatch.R
 import com.qanatdev.livecoinwatch.presentation.adapters.CoinInfoAdapter
-import com.qanatdev.livecoinwatch.data.models.CoinPriceInfo
 
 
 class CoinPriceListActivity : AppCompatActivity() {
