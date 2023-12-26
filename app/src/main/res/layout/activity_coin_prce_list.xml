@@ -7,6 +7,19 @@
     android:background="#161824"
     tools:context=".presentation.CoinPriceListActivity">
 
+    <ImageView
+        android:id="@+id/updateData"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="57dp"
+        android:layout_marginStart="6dp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        app:layout_constraintStart_toEndOf="@+id/mainLogo"
+        android:background="@android:drawable/ic_popup_sync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/buttontoupdatedata" />
+
+
     <TextView
         android:id="@+id/mainLogo"
         android:layout_width="wrap_content"

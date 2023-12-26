@@ -12,4 +12,5 @@
     <string name="welcome_text2">All Your Crypto in One place</string>
     <string name="welcome_text3">Get real-time information\non cryptocurrency prices</string>
     <string name="your_prompt">Dollar</string>
+    <string name="buttontoupdatedata">buttonToUpdateData</string>
 </resources>

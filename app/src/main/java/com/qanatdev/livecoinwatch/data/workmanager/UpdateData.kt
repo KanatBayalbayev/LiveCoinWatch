@@ -33,7 +33,7 @@ class UpdateData(
             } catch (e: Exception) {
                 TODO("Not yet implemented")
             }
-            delay(1000)
+            delay(1000000)
         }
     }
 

@@ -1,13 +1,11 @@
 package com.qanatdev.livecoinwatch.presentation
 
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
 import com.qanatdev.livecoinwatch.R
 import com.qanatdev.livecoinwatch.databinding.ActivityCoinPrceListBinding
 import com.qanatdev.livecoinwatch.domain.CryptoEntity
@@ -55,6 +53,14 @@ class CoinPriceListActivity : AppCompatActivity() {
             adapter.submitList(it)
         }
 
+        updateData()
+
+    }
+
+    private fun updateData() {
+        binding.updateData?.setOnClickListener {
+            viewModel.updateDataVM()
+        }
     }
 
     private fun isOnePaneMode() = binding.fragmentContainer == null
@@ -76,7 +82,7 @@ class CoinPriceListActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun launchWelcomeActivity(){
+    private fun launchWelcomeActivity() {
         val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         val firstRun: Boolean = prefs.getBoolean(KEY_FIRST_RUN, true)
 
@@ -85,7 +91,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         }
     }
 
-    companion object{
+    companion object {
         private val PREFS_NAME = "MyPrefsFile"
         private val KEY_FIRST_RUN = "firstRun"
     }

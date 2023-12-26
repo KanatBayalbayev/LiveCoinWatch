@@ -1,14 +1,9 @@
 package com.qanatdev.livecoinwatch.presentation
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.qanatdev.livecoinwatch.data.repository.CryptoRepositoryImpl
 import com.qanatdev.livecoinwatch.domain.GetCryptoListUseCase
 import com.qanatdev.livecoinwatch.domain.GetCryptoUseCase
 import com.qanatdev.livecoinwatch.domain.LoadDataUseCase
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CoinViewModel @Inject constructor(
@@ -21,6 +16,9 @@ class CoinViewModel @Inject constructor(
 
     fun getDetailInfo(fSym: String) = getCryptoUseCase(fSym)
 
+    fun updateDataVM(){
+        loadDataUseCase()
+    }
     init {
         loadDataUseCase()
     }
