@@ -7,17 +7,19 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkerParameters
 import com.qanatdev.livecoinwatch.data.CryptoMapper
 import com.qanatdev.livecoinwatch.data.api.ApiFactory
+import com.qanatdev.livecoinwatch.data.api.ApiService
 import com.qanatdev.livecoinwatch.data.database.AppDatabase
+import com.qanatdev.livecoinwatch.data.database.CryptoInfoDao
 import kotlinx.coroutines.delay
 
 class UpdateData(
     context: Context,
-    workerParameters: WorkerParameters
+    workerParameters: WorkerParameters,
+    private val mapper: CryptoMapper,
+    private val cryptoInfoDAO: CryptoInfoDao,
+    private val apiService: ApiService,
 ) : CoroutineWorker(context, workerParameters){
 
-    private val cryptoInfoDAO = AppDatabase.getInstance(context).coinPriceInfoDao()
-    private val apiService = ApiFactory.apiService
-    private val mapper = CryptoMapper()
 
     override suspend fun doWork(): Result {
         while (true) {
