@@ -22,7 +22,7 @@ class CryptoPriceListActivity : AppCompatActivity() {
     lateinit var mainViewModelFactory: MainViewModelFactory
 
     private val component by lazy {
-        (application as CryptoApp).component
+        (application as LiveCoinWatch).component
     }
 
     private val binding by lazy {

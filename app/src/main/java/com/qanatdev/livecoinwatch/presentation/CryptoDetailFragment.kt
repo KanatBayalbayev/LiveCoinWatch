@@ -22,7 +22,7 @@ class CryptoDetailFragment : Fragment() {
     lateinit var mainViewModelFactory: MainViewModelFactory
 
     private val component by lazy {
-        (requireActivity().application as CryptoApp).component
+        (requireActivity().application as LiveCoinWatch).component
     }
 
 
