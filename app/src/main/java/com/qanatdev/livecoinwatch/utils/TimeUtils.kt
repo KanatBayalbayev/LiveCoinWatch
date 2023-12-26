@@ -1,4 +1,4 @@
-package com.example.cryptoapp.utils
+package com.qanatdev.livecoinwatch.utils
 
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
@@ -12,4 +12,8 @@ fun convertTimestampToTime(timestamp: Long?): String {
     val sdf = SimpleDateFormat(pattern, Locale.getDefault())
     sdf.timeZone = TimeZone.getDefault()
     return sdf.format(date)
+}
+
+fun cutNumbers(price: String?): String {
+    return String.format("%.2f", price?.toDouble())
 }

@@ -3,15 +3,9 @@ package com.qanatdev.livecoinwatch.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.example.cryptoapp.utils.convertTimestampToTime
 import com.qanatdev.livecoinwatch.R
-import com.qanatdev.livecoinwatch.data.api.ApiFactory.BASE_IMAGE_URL
 import com.qanatdev.livecoinwatch.databinding.ActivityCoinDetailBinding
-import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
 

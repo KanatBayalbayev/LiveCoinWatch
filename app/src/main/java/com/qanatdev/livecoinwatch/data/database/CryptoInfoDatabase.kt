@@ -2,8 +2,6 @@ package com.qanatdev.livecoinwatch.data.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.qanatdev.livecoinwatch.data.api.ApiFactory.BASE_IMAGE_URL
-import com.example.cryptoapp.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 

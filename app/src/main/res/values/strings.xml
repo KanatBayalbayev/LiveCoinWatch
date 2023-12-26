@@ -8,4 +8,7 @@
     <string name="max_price_label">Максимум за день:</string>
     <string name="last_market_label">Последняя сделка:</string>
     <string name="last_updated_label">Обновлено:</string>
+    <string name="welcome_text">LiveCoinWatch</string>
+    <string name="welcome_text2">All Your Crypto in One place</string>
+    <string name="welcome_text3">Get real-time information\non cryptocurrency prices</string>
 </resources>

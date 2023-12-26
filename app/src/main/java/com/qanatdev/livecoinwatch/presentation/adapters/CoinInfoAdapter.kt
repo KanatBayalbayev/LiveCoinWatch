@@ -2,13 +2,10 @@ package com.qanatdev.livecoinwatch.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.example.cryptoapp.utils.convertTimestampToTime
+import com.qanatdev.livecoinwatch.utils.convertTimestampToTime
+import com.qanatdev.livecoinwatch.utils.cutNumbers
 import com.qanatdev.livecoinwatch.R
 import com.qanatdev.livecoinwatch.data.api.ApiFactory.BASE_IMAGE_URL
 import com.qanatdev.livecoinwatch.databinding.ItemCoinInfoBinding
@@ -38,7 +35,7 @@ class CoinInfoAdapter(
                 val symbolsTemplate = context.resources.getString(R.string.symbols_template)
                 val lastUpdateTemplate = context.resources.getString(R.string.last_update_template)
                 tvSymbols.text = String.format(symbolsTemplate, fromSymbol, toSymbol)
-                tvPrice.text = price
+                tvPrice.text = cutNumbers(price)
                 tvLastUpdate.text = String.format(lastUpdateTemplate, convertTimestampToTime(lastUpdate))
                 Picasso.get().load(BASE_IMAGE_URL+ imageUrl).into(ivLogoCoin)
                 root.setOnClickListener {
