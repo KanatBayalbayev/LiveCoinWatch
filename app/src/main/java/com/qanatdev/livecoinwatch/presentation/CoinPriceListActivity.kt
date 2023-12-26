@@ -1,6 +1,9 @@
 package com.qanatdev.livecoinwatch.presentation
 
 import android.app.Application
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -32,6 +35,9 @@ class CoinPriceListActivity : AppCompatActivity() {
         component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        launchWelcomeActivity()
+
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CryptoEntity) {
@@ -48,6 +54,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         viewModel.cryptoList.observe(this) {
             adapter.submitList(it)
         }
+
     }
 
     private fun isOnePaneMode() = binding.fragmentContainer == null
@@ -67,5 +74,19 @@ class CoinPriceListActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
             .addToBackStack(null)
             .commit()
+    }
+
+    private fun launchWelcomeActivity(){
+        val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val firstRun: Boolean = prefs.getBoolean(KEY_FIRST_RUN, true)
+
+        if (firstRun) {
+            startActivity(Intent(this, WelcomeActivity::class.java))
+        }
+    }
+
+    companion object{
+        private val PREFS_NAME = "MyPrefsFile"
+        private val KEY_FIRST_RUN = "firstRun"
     }
 }
