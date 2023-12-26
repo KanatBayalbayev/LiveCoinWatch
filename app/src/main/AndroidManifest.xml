@@ -25,6 +25,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.CoinDetailActivity"/>
+        <provider
+            android:authorities="androidx.work.WorkManagerInitializer"
+            android:name="androidx.startup.InitializationProvider"
+            tools:replace="android:authorities"
+            tools:node="remove"/>
     </application>
 
 </manifest>
