@@ -61,6 +61,14 @@ class CoinDetailFragment : Fragment() {
                 Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(ivLogoCoin)
             }
         }
+
+        backToMainActivity()
+    }
+
+    private fun backToMainActivity(){
+        binding.buttonToBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
     private fun getSymbol(): String {
