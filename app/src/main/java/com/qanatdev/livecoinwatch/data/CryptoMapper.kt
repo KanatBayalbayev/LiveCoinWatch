@@ -7,8 +7,9 @@ import com.qanatdev.livecoinwatch.data.api.models.CryptoJsonObjectDTO
 import com.qanatdev.livecoinwatch.data.api.models.CryptoNamesListDTO
 import com.qanatdev.livecoinwatch.data.database.CryptoInfoDatabase
 import com.qanatdev.livecoinwatch.domain.CryptoEntity
+import javax.inject.Inject
 
-class CryptoMapper {
+class CryptoMapper @Inject constructor() {
 
 
     fun mapDTOtoDatabase(

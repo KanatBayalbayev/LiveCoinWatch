@@ -1,7 +1,9 @@
 package com.qanatdev.livecoinwatch.domain
 
+import javax.inject.Inject
 
-class LoadDataUseCase(
+
+class LoadDataUseCase @Inject constructor(
     private val repository: CryptoRepository
 ) {
 
