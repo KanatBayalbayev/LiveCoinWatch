@@ -17,37 +17,53 @@
 
         <ImageView
             android:id="@+id/ivLogoCoin"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="8dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/tvSymbols"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textColor="#000"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/tvPrice"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/ivLogoCoin"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="BTC / USD" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/liveSign"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/ivLogoCoin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvLastUpdate"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_speed="1.5"
+            app:lottie_rawRes="@raw/livesign" />
 
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textColor="#000"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="7500.52" />
 
@@ -55,12 +71,13 @@
             android:id="@+id/tvLastUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textColor="#000"
+            android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
+            android:layout_marginBottom="13dp"
+            android:layout_marginStart="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Время последнего обновления: 21:52:33" />
+            app:layout_constraintStart_toEndOf="@+id/liveSign"
+            tools:text="21:52:33" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

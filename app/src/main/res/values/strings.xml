@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CryptoApp</string>
     <string name="symbols_template">%s / %s</string>
-    <string name="last_update_template">Время последнего обновления: %s</string>
+    <string name="last_update_template">$%s</string>
     <string name="slash">/</string>
     <string name="price_label">Цена:</string>
     <string name="min_price_label">Минимум за день:</string>

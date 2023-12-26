@@ -33,10 +33,9 @@ class CoinInfoAdapter(
         with(holder.binding) {
             with(coin) {
                 val symbolsTemplate = context.resources.getString(R.string.symbols_template)
-                val lastUpdateTemplate = context.resources.getString(R.string.last_update_template)
                 tvSymbols.text = String.format(symbolsTemplate, fromSymbol, toSymbol)
                 tvPrice.text = cutNumbers(price)
-                tvLastUpdate.text = String.format(lastUpdateTemplate, convertTimestampToTime(lastUpdate))
+                tvLastUpdate.text = convertTimestampToTime(lastUpdate)
                 Picasso.get().load(BASE_IMAGE_URL+ imageUrl).into(ivLogoCoin)
                 root.setOnClickListener {
                     onCoinClickListener?.onCoinClick(this)

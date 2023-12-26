@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.qanatdev.livecoinwatch.data.api.ApiFactory.BASE_IMAGE_URL
 import com.qanatdev.livecoinwatch.databinding.FragmentCoinDetailBinding
+import com.qanatdev.livecoinwatch.utils.convertTimestampToTime
+import com.qanatdev.livecoinwatch.utils.cutNumbers
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
@@ -48,14 +51,14 @@ class CoinDetailFragment : Fragment() {
         viewModel = ViewModelProvider(this, mainViewModelFactory)[CoinViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol).observe(viewLifecycleOwner) {
             with(binding) {
-                tvPrice.text = it.price
-                tvMinPrice.text = it.lowDay
-                tvMaxPrice.text = it.highDay
+                tvPrice.text = cutNumbers(it.price)
+                tvMinPrice.text = cutNumbers(it.lowDay)
+                tvMaxPrice.text = cutNumbers(it.highDay)
                 tvLastMarket.text = it.lastMarket
-                tvLastUpdate.text = it.lastUpdate.toString()
+                tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
                 tvFromSymbol.text = it.fromSymbol
                 tvToSymbol.text = it.toSymbol
-                Picasso.get().load(it.imageUrl).into(ivLogoCoin)
+                Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(ivLogoCoin)
             }
         }
     }
