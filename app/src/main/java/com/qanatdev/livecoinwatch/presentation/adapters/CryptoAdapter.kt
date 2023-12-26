@@ -13,22 +13,22 @@ import com.qanatdev.livecoinwatch.domain.CryptoEntity
 import com.squareup.picasso.Picasso
 
 
-class CoinInfoAdapter(
+class CryptoAdapter(
     private val context: Context
-) : ListAdapter<CryptoEntity, CoinInfoViewHolder>(CoinInfoDiffCallback) {
+) : ListAdapter<CryptoEntity, CryptoViewHolder>(CryptoDiffCallback) {
 
     var onCoinClickListener: OnCoinClickListener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinInfoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoViewHolder {
         val binding = ItemCoinInfoBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return CoinInfoViewHolder(binding)
+        return CryptoViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CoinInfoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         val coin = getItem(position)
         with(holder.binding) {
             with(coin) {

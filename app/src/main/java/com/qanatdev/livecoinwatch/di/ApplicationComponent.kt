@@ -1,8 +1,8 @@
 package com.qanatdev.livecoinwatch.di
 
 import android.app.Application
-import com.qanatdev.livecoinwatch.presentation.CoinDetailFragment
-import com.qanatdev.livecoinwatch.presentation.CoinPriceListActivity
+import com.qanatdev.livecoinwatch.presentation.CryptoDetailFragment
+import com.qanatdev.livecoinwatch.presentation.CryptoPriceListActivity
 import com.qanatdev.livecoinwatch.presentation.CryptoApp
 import dagger.BindsInstance
 import dagger.Component
@@ -11,9 +11,9 @@ import dagger.Component
 @Component(modules = [DataModule::class, ViewModelModule::class])
 interface ApplicationComponent {
 
-    fun inject(coinPriceListActivity: CoinPriceListActivity)
+    fun inject(cryptoPriceListActivity: CryptoPriceListActivity)
 
-    fun inject(coinDetailFragment: CoinDetailFragment)
+    fun inject(cryptoDetailFragment: CryptoDetailFragment)
     fun inject(cryptoApp: CryptoApp)
 
     @Component.Factory

@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.qanatdev.livecoinwatch.data.api.ApiFactory.BASE_IMAGE_URL
-import com.qanatdev.livecoinwatch.databinding.FragmentCoinDetailBinding
+import com.qanatdev.livecoinwatch.databinding.FragmentCryptoDetailBinding
 import com.qanatdev.livecoinwatch.utils.convertTimestampToTime
 import com.qanatdev.livecoinwatch.utils.cutNumbers
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
-class CoinDetailFragment : Fragment() {
+class CryptoDetailFragment : Fragment() {
 
-    private lateinit var viewModel: CoinViewModel
+    private lateinit var viewModel: MainViewModel
 
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
@@ -26,8 +26,8 @@ class CoinDetailFragment : Fragment() {
     }
 
 
-    private var _binding: FragmentCoinDetailBinding? = null
-    private val binding: FragmentCoinDetailBinding
+    private var _binding: FragmentCryptoDetailBinding? = null
+    private val binding: FragmentCryptoDetailBinding
         get() = _binding ?: throw RuntimeException("FragmentCoinDetailBinding is null")
 
 
@@ -41,14 +41,14 @@ class CoinDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCoinDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentCryptoDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fromSymbol = getSymbol()
-        viewModel = ViewModelProvider(this, mainViewModelFactory)[CoinViewModel::class.java]
+        viewModel = ViewModelProvider(this, mainViewModelFactory)[MainViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol).observe(viewLifecycleOwner) {
             with(binding) {
                 tvPrice.text = cutNumbers(it.price)
@@ -80,7 +80,7 @@ class CoinDetailFragment : Fragment() {
         private const val EMPTY_SYMBOL = ""
 
         fun newInstance(fromSymbol: String): Fragment {
-            return CoinDetailFragment().apply {
+            return CryptoDetailFragment().apply {
                 arguments = Bundle().apply {
                     putString(EXTRA_FROM_SYMBOL, fromSymbol)
                 }

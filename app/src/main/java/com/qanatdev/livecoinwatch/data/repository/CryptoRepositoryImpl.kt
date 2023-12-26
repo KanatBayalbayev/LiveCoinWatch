@@ -6,19 +6,16 @@ import androidx.lifecycle.map
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.qanatdev.livecoinwatch.data.CryptoMapper
-import com.qanatdev.livecoinwatch.data.api.ApiFactory
-import com.qanatdev.livecoinwatch.data.database.AppDatabase
-import com.qanatdev.livecoinwatch.data.database.CryptoInfoDao
+import com.qanatdev.livecoinwatch.data.database.CryptoDao
 import com.qanatdev.livecoinwatch.data.workmanager.UpdateData
 import com.qanatdev.livecoinwatch.domain.CryptoEntity
 import com.qanatdev.livecoinwatch.domain.CryptoRepository
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 
 class CryptoRepositoryImpl @Inject constructor(
     private val mapper: CryptoMapper,
-    private val cryptoInfoDAO: CryptoInfoDao,
+    private val cryptoDAO: CryptoDao,
     private val application: Application
 ) : CryptoRepository {
 
@@ -34,7 +31,7 @@ class CryptoRepositoryImpl @Inject constructor(
     }
 
     override fun getCryptoList(): LiveData<List<CryptoEntity>> {
-        return cryptoInfoDAO.getPriceList().map {
+        return cryptoDAO.getPriceList().map {
             it.map {
                 mapper.mapDatabaseToEntity(it)
             }
@@ -42,7 +39,7 @@ class CryptoRepositoryImpl @Inject constructor(
     }
 
     override fun getCrypto(fromSymbol: String): LiveData<CryptoEntity> {
-        return cryptoInfoDAO.getPriceInfoAboutCoin(fromSymbol).map {
+        return cryptoDAO.getPriceInfoAboutCoin(fromSymbol).map {
             mapper.mapDatabaseToEntity(it)
         }
     }

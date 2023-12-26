@@ -6,12 +6,12 @@ import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
 import com.qanatdev.livecoinwatch.data.CryptoMapper
 import com.qanatdev.livecoinwatch.data.api.ApiService
-import com.qanatdev.livecoinwatch.data.database.CryptoInfoDao
+import com.qanatdev.livecoinwatch.data.database.CryptoDao
 import javax.inject.Inject
 
 class UpdateDataFactory @Inject constructor(
     private val mapper: CryptoMapper,
-    private val cryptoInfoDAO: CryptoInfoDao,
+    private val cryptoDAO: CryptoDao,
     private val apiService: ApiService,
 ) : WorkerFactory() {
 
@@ -24,7 +24,7 @@ class UpdateDataFactory @Inject constructor(
             appContext,
             workerParameters,
             mapper,
-            cryptoInfoDAO,
+            cryptoDAO,
             apiService
         )
     }

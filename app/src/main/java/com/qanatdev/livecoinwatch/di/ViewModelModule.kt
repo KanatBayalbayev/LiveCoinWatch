@@ -1,7 +1,7 @@
 package com.qanatdev.livecoinwatch.di
 
 import androidx.lifecycle.ViewModel
-import com.qanatdev.livecoinwatch.presentation.CoinViewModel
+import com.qanatdev.livecoinwatch.presentation.MainViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -11,6 +11,6 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(CoinViewModel::class)
-    fun bindMainViewModel(coinViewModel: CoinViewModel): ViewModel
+    @ViewModelKey(MainViewModel::class)
+    fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
 }

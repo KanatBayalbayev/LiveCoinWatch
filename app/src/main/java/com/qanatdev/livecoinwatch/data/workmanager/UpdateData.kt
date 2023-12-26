@@ -6,17 +6,15 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkerParameters
 import com.qanatdev.livecoinwatch.data.CryptoMapper
-import com.qanatdev.livecoinwatch.data.api.ApiFactory
 import com.qanatdev.livecoinwatch.data.api.ApiService
-import com.qanatdev.livecoinwatch.data.database.AppDatabase
-import com.qanatdev.livecoinwatch.data.database.CryptoInfoDao
+import com.qanatdev.livecoinwatch.data.database.CryptoDao
 import kotlinx.coroutines.delay
 
 class UpdateData(
     context: Context,
     workerParameters: WorkerParameters,
     private val mapper: CryptoMapper,
-    private val cryptoInfoDAO: CryptoInfoDao,
+    private val cryptoDAO: CryptoDao,
     private val apiService: ApiService,
 ) : CoroutineWorker(context, workerParameters){
 
@@ -29,7 +27,7 @@ class UpdateData(
                 val jsonContainer = apiService.getFullPriceList(fSyms = fSyms)
                 val coinInfoDtoList = mapper.mapJsonContainerToListCryptoInfoDTO(jsonContainer)
                 val dbModelList = coinInfoDtoList.map { mapper.mapDTOtoDatabase(it) }
-                cryptoInfoDAO.insertPriceList(dbModelList)
+                cryptoDAO.insertPriceList(dbModelList)
             } catch (e: Exception) {
                 TODO("Not yet implemented")
             }

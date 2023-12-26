@@ -9,14 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.qanatdev.livecoinwatch.R
 import com.qanatdev.livecoinwatch.databinding.ActivityCoinPrceListBinding
 import com.qanatdev.livecoinwatch.domain.CryptoEntity
-import com.qanatdev.livecoinwatch.presentation.adapters.CoinInfoAdapter
+import com.qanatdev.livecoinwatch.presentation.adapters.CryptoAdapter
 import javax.inject.Inject
 
 
-class CoinPriceListActivity : AppCompatActivity() {
+class CryptoPriceListActivity : AppCompatActivity() {
 
 
-    private lateinit var viewModel: CoinViewModel
+    private lateinit var viewModel: MainViewModel
 
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
@@ -36,8 +36,8 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         launchWelcomeActivity()
 
-        val adapter = CoinInfoAdapter(this)
-        adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
+        val adapter = CryptoAdapter(this)
+        adapter.onCoinClickListener = object : CryptoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CryptoEntity) {
                 if (isOnePaneMode()) {
                     launchDetailActivity(coinPriceInfo.fromSymbol)
@@ -48,7 +48,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         }
         binding.rvCoinPriceList.adapter = adapter
         binding.rvCoinPriceList.itemAnimator = null
-        viewModel = ViewModelProvider(this, mainViewModelFactory)[CoinViewModel::class.java]
+        viewModel = ViewModelProvider(this, mainViewModelFactory)[MainViewModel::class.java]
         viewModel.cryptoList.observe(this) {
             adapter.submitList(it)
         }
@@ -66,8 +66,8 @@ class CoinPriceListActivity : AppCompatActivity() {
     private fun isOnePaneMode() = binding.fragmentContainer == null
 
     private fun launchDetailActivity(fromSymbol: String) {
-        val intent = CoinDetailActivity.newIntent(
-            this@CoinPriceListActivity,
+        val intent = CryptoDetailActivity.newIntent(
+            this@CryptoPriceListActivity,
             fromSymbol
         )
         startActivity(intent)
@@ -77,7 +77,7 @@ class CoinPriceListActivity : AppCompatActivity() {
         supportFragmentManager.popBackStack()
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
+            .replace(R.id.fragment_container, CryptoDetailFragment.newInstance(fromSymbol))
             .addToBackStack(null)
             .commit()
     }

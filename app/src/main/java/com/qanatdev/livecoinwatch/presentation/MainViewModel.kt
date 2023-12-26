@@ -6,7 +6,7 @@ import com.qanatdev.livecoinwatch.domain.GetCryptoUseCase
 import com.qanatdev.livecoinwatch.domain.LoadDataUseCase
 import javax.inject.Inject
 
-class CoinViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val getCryptoListUseCase: GetCryptoListUseCase,
     private val getCryptoUseCase: GetCryptoUseCase,
     private val loadDataUseCase: LoadDataUseCase,

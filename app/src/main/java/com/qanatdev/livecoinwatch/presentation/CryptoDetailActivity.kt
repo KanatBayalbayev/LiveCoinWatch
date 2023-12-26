@@ -5,12 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.qanatdev.livecoinwatch.R
-import com.qanatdev.livecoinwatch.databinding.ActivityCoinDetailBinding
+import com.qanatdev.livecoinwatch.databinding.ActivityCryptoDetailBinding
 
-class CoinDetailActivity : AppCompatActivity() {
+class CryptoDetailActivity : AppCompatActivity() {
 
     private val binding by lazy {
-        ActivityCoinDetailBinding.inflate(layoutInflater)
+        ActivityCryptoDetailBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class CoinDetailActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, CoinDetailFragment.newInstance(fromSymbol))
+                .replace(R.id.fragment_container, CryptoDetailFragment.newInstance(fromSymbol))
                 .commit()
         }
     }
@@ -34,7 +34,7 @@ class CoinDetailActivity : AppCompatActivity() {
         private const val EMPTY_SYMBOL = ""
 
         fun newIntent(context: Context, fromSymbol: String): Intent {
-            val intent = Intent(context, CoinDetailActivity::class.java)
+            val intent = Intent(context, CryptoDetailActivity::class.java)
             intent.putExtra(EXTRA_FROM_SYMBOL, fromSymbol)
             return intent
         }
