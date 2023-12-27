@@ -1,7 +1,7 @@
 <img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/3be35dd3-e7b5-43a6-b162-229743924183" width="310" height="700"><img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/e52c44aa-1553-4ce7-97e4-a1285685a1db" width="310" height="700">
 <img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/37398922-9a85-44e6-82e9-086fac81cca2" width="310" height="700"> 
 
-
+https://play.google.com/store/apps/details?id=com.qanatdev.livecoinwatch
 
 "LiveCoinWatch" - это приложение, предоставляющее в режиме реального времени информацию о ценах на криптовалюты в долларах США. Пользователи могут легко отслеживать текущие цены, изменения и тренды различных криптовалют, получая точную и актуальную информацию. Помимо простого отображения цен, приложение также предоставляет детальную информацию о каждой криптовалюте, включая данные о максимальной и минимальной цене за день и последней сделки. "LiveCoinWatch" обеспечивает удобный и информативный интерфейс для тех, кто интересуется динамикой рынка криптовалют.
 
