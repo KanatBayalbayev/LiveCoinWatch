@@ -1,5 +1,8 @@
-<img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/3be35dd3-e7b5-43a6-b162-229743924183" width="310" height="700"><img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/e52c44aa-1553-4ce7-97e4-a1285685a1db" width="310" height="700">
-<img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/37398922-9a85-44e6-82e9-086fac81cca2" width="310" height="700"> 
+https://github.com/KanatBayalbayev/ArithmetiQuest/assets/115481348/73e1e62b-2de2-46cd-8a27-e61611b808a4
+
+
+<img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/3be35dd3-e7b5-43a6-b162-229743924183" width="360" height="700"><img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/e52c44aa-1553-4ce7-97e4-a1285685a1db" width="360" height="700">
+<img src="https://github.com/KanatBayalbayev/LiveCoinWatch/assets/115481348/37398922-9a85-44e6-82e9-086fac81cca2" width="360" height="700"> 
 
 
 
